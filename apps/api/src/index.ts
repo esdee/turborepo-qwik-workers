@@ -1,3 +1,5 @@
+import { Hono } from 'hono';
+
 /**
  * Welcome to Cloudflare Workers! This is your first worker.
  *
@@ -22,12 +24,10 @@ export interface Env {
   // MY_SERVICE: Fetcher;
 }
 
-export default {
-  async fetch(
-    request: Request,
-    env: Env,
-    ctx: ExecutionContext
-  ): Promise<Response> {
-    return new Response('Hello World!');
-  },
-};
+const app = new Hono();
+
+app.get('/ping', (c) => {
+  return c.json({ message: 'Hello, world!' }, 200);
+});
+
+export default app;
