@@ -1,4 +1,6 @@
 import { Hono } from 'hono';
+import { Bindings } from './bindings';
+import { cors } from 'hono/cors';
 
 /**
  * Welcome to Cloudflare Workers! This is your first worker.
@@ -10,24 +12,19 @@ import { Hono } from 'hono';
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
-export interface Env {
-  // Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
-  // MY_KV_NAMESPACE: KVNamespace;
-  //
-  // Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
-  // MY_DURABLE_OBJECT: DurableObjectNamespace;
-  //
-  // Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
-  // MY_BUCKET: R2Bucket;
-  //
-  // Example binding to a Service. Learn more at https://developers.cloudflare.com/workers/runtime-apis/service-bindings/
-  // MY_SERVICE: Fetcher;
-}
+const api = new Hono<{ Bindings: Bindings }>();
 
-const app = new Hono();
-
-app.get('/ping', (c) => {
-  return c.json({ message: 'Hello, world!' }, 200);
+api.get('/ping', async (c) => {
+  const k = await c.env.API_KV.get('ping');
+  return c.json(
+    {
+      message: 'Hello, world!',
+      public: c.env.PUBLIC,
+      private: c.env.PRIVATE,
+      kv: { ping: k },
+    },
+    200
+  );
 });
 
-export default app;
+export default api;

@@ -1,3 +1,18 @@
 name = "api"
 main = "src/index.ts"
 compatibility_date = "2023-04-02"
+
+# LOCAL db, kv should be in ~ .wrangler/state
+[env.local]
+name = "api-local"
+kv_namespaces = [
+  { binding = "API_KV", id = "<LOCAL-STORAGE>", preview_id = "<NOT-USED>" },
+]
+
+[[env.local.d1_databases]]
+binding = "API_DB"                                   # i.e. available in your Worker on env.DB
+database_name = "api_db"
+database_id = "0c770cfa-08d4-4e65-afeb-f989c3a10790" # just used for backups during a local migration
+
+[env.local.vars]
+PUBLIC = "this is local public"

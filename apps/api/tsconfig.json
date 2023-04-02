@@ -1,0 +1,5 @@
+{
+  "extends": "tsconfig/cloudflare-workers.json",
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
