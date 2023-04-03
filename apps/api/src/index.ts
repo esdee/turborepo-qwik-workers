@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { Bindings } from './bindings';
 import { cors } from 'hono/cors';
+import { dateUtils } from 'utils';
 
 /**
  * Welcome to Cloudflare Workers! This is your first worker.
@@ -19,6 +20,7 @@ api.get('/ping', async (c) => {
   const dbRows = await c.env.API_DB.prepare(
     'SELECT date() as date, time() as time; '
   ).first();
+  const tf = dateUtils.foo(1);
   return c.json(
     {
       message: 'Hello, world!',
@@ -26,6 +28,7 @@ api.get('/ping', async (c) => {
       private: c.env.PRIVATE,
       kv: { ping: k },
       db: dbRows,
+      foo: tf,
     },
     200
   );

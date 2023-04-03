@@ -18,6 +18,7 @@
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
     "typescript": "^5.0.3",
+    "utils": "workspace:*",
     "vitest": "^0.29.8",
     "wrangler": "2.13.0"
   },
