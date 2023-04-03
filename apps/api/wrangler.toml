@@ -1,0 +1,36 @@
+name = "api"
+main = "src/index.ts"
+compatibility_date = "2023-04-02"
+
+# LOCAL db, kv should be in ~ .wrangler/state
+[env.local]
+name = "api-local"
+# wrangler dev complains if id and preview_id are not set
+# local kv values are in .wrangler/state/kv
+# use your editor to read/write the values, NOT the CLI
+kv_namespaces = [
+  { binding = "API_KV", id = "<LOCAL-STORAGE>", preview_id = "<NOT-USED>" },
+]
+
+[[env.local.d1_databases]]
+binding = "API_DB"                                   # i.e. available in your Worker on env.DB
+database_name = "api_db"
+database_id = "0c770cfa-08d4-4e65-afeb-f989c3a10790" # just used for backups during a local migration
+
+[env.local.vars]
+PUBLIC = "this is local public"
+
+[env.production]
+name = "api-prod"
+
+kv_namespaces = [
+  { binding = "API_KV", id = "e5b1a06839884c4c9c089a3b07d1624d", preview_id = "" },
+]
+
+[env.prodcution.vars]
+PUBLIC = "this is PRODUCTION public"
+
+[[env.production.d1_databases]]
+binding = "API_DB"                                   # i.e. available in your Worker on env.DB
+database_name = "my-first-app-db"
+database_id = "f6fc34f5-f4f7-4e90-b7a5-dc4327a53ad0" # just used for backups during a local migration

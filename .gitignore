@@ -36,6 +36,6 @@ yarn-error.log*
 
 
 # wrangler
-wrangler.toml
+# wrangler.toml
 .dev.vars
 .wrangler
