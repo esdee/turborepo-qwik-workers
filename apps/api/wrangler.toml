@@ -22,7 +22,6 @@ PUBLIC = "this is local public"
 
 [env.production]
 name = "api-prod"
-
 kv_namespaces = [
   { binding = "API_KV", id = "e5b1a06839884c4c9c089a3b07d1624d", preview_id = "" },
 ]

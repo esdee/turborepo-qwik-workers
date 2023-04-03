@@ -7,6 +7,7 @@
     "dev": "wrangler dev src/index.ts --local --env local --persist --log-level=info",
     "deploy": "wrangler publish src/index.ts",
     "migrate-local": "wrangler d1 migrations apply api_db --env local --local",
+    "publish": "npx wrangler publish --env=production",
     "test": "vitest"
   },
   "dependencies": {
