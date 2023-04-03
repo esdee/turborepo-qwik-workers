@@ -26,6 +26,9 @@ importers:
       '@cloudflare/workers-types':
         specifier: ^4.20230321.0
         version: 4.20230321.0
+      data:
+        specifier: workspace:*
+        version: link:../../packages/data
       eslint-config-custom:
         specifier: workspace:*
         version: link:../../packages/eslint-config-custom
@@ -44,6 +47,27 @@ importers:
       wrangler:
         specifier: 2.13.0
         version: 2.13.0
+
+  packages/data:
+    devDependencies:
+      '@cloudflare/workers-types':
+        specifier: ^4.20230321.0
+        version: 4.20230321.0
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../eslint-config-custom
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: ^5.0.3
+        version: 5.0.3
+      utils:
+        specifier: workspace:*
+        version: link:../utils
+      vitest:
+        specifier: ^0.29.8
+        version: 0.29.8
 
   packages/eslint-config-custom:
     dependencies:
