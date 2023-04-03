@@ -18,7 +18,7 @@ const api = new Hono<{ Bindings: Bindings }>();
 
 api.get('/ping', async (c) => {
   const k = await c.env.API_KV.get('ping');
-  const dbRows = await pingData.foo(c.env.API_DB);
+  const dbRow = await pingData.foo(c.env.API_DB);
   const tf = dateUtils.foo(1);
   return c.json(
     {
@@ -26,7 +26,7 @@ api.get('/ping', async (c) => {
       public: c.env.PUBLIC,
       private: c.env.PRIVATE,
       kv: { ping: k },
-      db: dbRows,
+      db: `${dbRow.date} ${dbRow.time}}`,
       foo: tf,
     },
     200
