@@ -5,6 +5,9 @@ compatibility_date = "2023-04-02"
 # LOCAL db, kv should be in ~ .wrangler/state
 [env.local]
 name = "api-local"
+# wrangler dev complains if id and preview_id are not set
+# local kv values are in .wrangler/state/kv
+# use your editor to read/write the values, NOT the CLI
 kv_namespaces = [
   { binding = "API_KV", id = "<LOCAL-STORAGE>", preview_id = "<NOT-USED>" },
 ]
