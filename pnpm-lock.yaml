@@ -35,6 +35,9 @@ importers:
       typescript:
         specifier: ^5.0.3
         version: 5.0.3
+      utils:
+        specifier: workspace:*
+        version: link:../../packages/utils
       vitest:
         specifier: ^0.29.8
         version: 0.29.8
@@ -59,6 +62,21 @@ importers:
         version: 4.7.4
 
   packages/tsconfig: {}
+
+  packages/utils:
+    devDependencies:
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../eslint-config-custom
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: ^5.0.3
+        version: 5.0.3
+      vitest:
+        specifier: ^0.29.8
+        version: 0.29.8
 
 packages:
 
