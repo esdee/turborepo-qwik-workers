@@ -16,12 +16,16 @@ const api = new Hono<{ Bindings: Bindings }>();
 
 api.get('/ping', async (c) => {
   const k = await c.env.API_KV.get('ping');
+  const dbRows = await c.env.API_DB.prepare(
+    'SELECT date() as date, time() as time; '
+  ).first();
   return c.json(
     {
       message: 'Hello, world!',
       public: c.env.PUBLIC,
       private: c.env.PRIVATE,
       kv: { ping: k },
+      db: dbRows,
     },
     200
   );
