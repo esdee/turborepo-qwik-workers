@@ -17,6 +17,8 @@
     "@cloudflare/workers-types": "^4.20230321.0",
     "@types/jest": "^29.5.0",
     "data": "workspace:*",
+    "esbuild": "^0.17.15",
+    "esbuild-jest": "^0.5.0",
     "eslint-config-custom": "workspace:*",
     "jest": "^29.5.0",
     "jest-environment-miniflare": "^2.13.0",
