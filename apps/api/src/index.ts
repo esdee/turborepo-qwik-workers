@@ -18,28 +18,29 @@ import { dateUtils } from 'utils';
 const api = new Hono<{ Bindings: Bindings }>();
 
 export type PingResponse = {
-  message: string;
-  public: string;
-  private: string;
   foo: number;
+  kv: { ping: string };
+  message: string;
+  private: string;
+  public: string;
 };
 
 async function pingHandler(
   c: Context<{ Bindings: Bindings }>
 ): Promise<PingResponse> {
+  const k = await c.env.API_KV.get('ping');
   const tf = dateUtils.foo(1);
   return {
     message: 'Hello, world!',
     public: c.env.PUBLIC,
     private: c.env.PRIVATE,
-    //   kv: { ping: k },
+    kv: { ping: k || '' },
     //   db: `${dbRow.date} ${dbRow.time}}`,
     foo: tf,
   };
 }
 
 api.get('/ping', async (c) => {
-  //  const k = await c.env.API_KV.get('ping');
   //  const dbRow = await pingData.foo(c.env.API_DB);
   const pingResponse = await pingHandler(c);
   return c.json(pingResponse, 200);

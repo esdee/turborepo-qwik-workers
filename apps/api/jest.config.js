@@ -4,4 +4,8 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'esbuild-jest',
   },
+  testEnvironmentOptions: {
+    bindings: { PRIVATE: 'test private', PUBLIC: 'test public' },
+    kvNamespaces: ['API_KV'],
+  },
 };
