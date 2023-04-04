@@ -2,13 +2,12 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Cloudflare worker API server, D1, KV",
-  "main": "index.js",
   "scripts": {
     "dev": "wrangler dev src/index.ts --local --env local --persist --log-level=info",
     "deploy": "wrangler publish src/index.ts",
     "migrate-local": "wrangler d1 migrations apply api_db --env local --local",
     "publish": "npx wrangler publish --env=production",
-    "test": "vitest"
+    "test": "jest --verbose"
   },
   "dependencies": {
     "better-sqlite3": "8.0.1",
@@ -16,15 +15,15 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230321.0",
+    "@types/jest": "^29.5.0",
     "data": "workspace:*",
     "eslint-config-custom": "workspace:*",
+    "jest": "^29.5.0",
+    "jest-environment-miniflare": "^2.13.0",
+    "miniflare": "^2.13.0",
     "tsconfig": "workspace:*",
     "typescript": "^5.0.3",
     "utils": "workspace:*",
-    "vitest": "^0.29.8",
     "wrangler": "2.13.0"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

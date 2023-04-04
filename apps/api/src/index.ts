@@ -1,8 +1,8 @@
 import { Hono } from 'hono';
 import { Bindings } from './bindings';
-import { cors } from 'hono/cors';
+// import { cors } from 'hono/cors';
 import { dateUtils } from 'utils';
-import { pingData } from 'data';
+// import { pingData } from 'data';
 
 /**
  * Welcome to Cloudflare Workers! This is your first worker.
@@ -17,16 +17,16 @@ import { pingData } from 'data';
 const api = new Hono<{ Bindings: Bindings }>();
 
 api.get('/ping', async (c) => {
-  const k = await c.env.API_KV.get('ping');
-  const dbRow = await pingData.foo(c.env.API_DB);
+  //  const k = await c.env.API_KV.get('ping');
+  //  const dbRow = await pingData.foo(c.env.API_DB);
   const tf = dateUtils.foo(1);
   return c.json(
     {
       message: 'Hello, world!',
       public: c.env.PUBLIC,
       private: c.env.PRIVATE,
-      kv: { ping: k },
-      db: `${dbRow.date} ${dbRow.time}}`,
+      //   kv: { ping: k },
+      //   db: `${dbRow.date} ${dbRow.time}}`,
       foo: tf,
     },
     200
