@@ -3,7 +3,7 @@ import type { Context } from 'hono';
 import { Bindings } from './bindings';
 // import { cors } from 'hono/cors';
 import { dateUtils } from 'utils';
-// import { pingData } from 'data';
+import { pingData } from 'data';
 
 /**
  * Welcome to Cloudflare Workers! This is your first worker.
@@ -20,6 +20,7 @@ const api = new Hono<{ Bindings: Bindings }>();
 export type PingResponse = {
   foo: number;
   kv: { ping: string };
+  db: string;
   message: string;
   private: string;
   public: string;
@@ -29,19 +30,19 @@ async function pingHandler(
   c: Context<{ Bindings: Bindings }>
 ): Promise<PingResponse> {
   const k = await c.env.API_KV.get('ping');
+  const dbResponse = await pingData.foo(c.env.API_DB);
   const tf = dateUtils.foo(1);
   return {
-    message: 'Hello, world!',
-    public: c.env.PUBLIC,
-    private: c.env.PRIVATE,
-    kv: { ping: k || '' },
-    //   db: `${dbRow.date} ${dbRow.time}}`,
+    db: dbResponse,
     foo: tf,
+    kv: { ping: k || '' },
+    message: 'Hello, world!',
+    private: c.env.PRIVATE,
+    public: c.env.PUBLIC,
   };
 }
 
 api.get('/ping', async (c) => {
-  //  const dbRow = await pingData.foo(c.env.API_DB);
   const pingResponse = await pingHandler(c);
   return c.json(pingResponse, 200);
 });

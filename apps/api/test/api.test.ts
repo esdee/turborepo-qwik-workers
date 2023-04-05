@@ -1,13 +1,8 @@
 import api from '../src/index';
 import type { PingResponse } from '../src/index';
+import { getTestEnvironment } from './testHelper';
 
-const env = getMiniflareBindings();
-
-describe('A first test', () => {
-  test('A named test', () => {
-    expect(1).toBe(1);
-  });
-});
+let env = getTestEnvironment();
 
 describe('A simple server test', () => {
   test('A named server test', async () => {
@@ -16,6 +11,7 @@ describe('A simple server test', () => {
     const res = await api.fetch(req, env);
     const json = await res.json<PingResponse>();
     expect(json).toEqual({
+      db: 'ok',
       foo: 3,
       kv: { ping: 'foo-test' },
       message: 'Hello, world!',
