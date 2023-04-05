@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Testing TurboRepo, Cloudflare qwik-workers and Qwik",
   "scripts": {
-    "build": "echo \"Error: no build specified\" && exit 1",
+    "build": "turbo run build",
     "dev": "echo \"Error: no dev specified\" && exit 1",
     "lint": "echo \"Error: no lint specified\" && exit 1",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "turbo run test"
   },
   "devDependencies": {
     "eslint": "latest",
