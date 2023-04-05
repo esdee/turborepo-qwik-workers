@@ -2,7 +2,7 @@ import api from '../src/index';
 import type { PingResponse } from '../src/index';
 import { getTestEnvironment } from './testHelper';
 
-let env = getTestEnvironment();
+const env = getTestEnvironment();
 
 describe('A simple server test', () => {
   test('A named server test', async () => {
