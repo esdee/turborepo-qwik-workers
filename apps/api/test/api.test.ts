@@ -14,8 +14,7 @@ describe('A simple server test', () => {
       db: 'ok',
       foo: 3,
       kv: { ping: 'foo-test' },
-      // expected failure
-      message: 'Hello, world!!',
+      message: 'Hello, world!',
       private: 'test private',
       public: 'test public',
     });
