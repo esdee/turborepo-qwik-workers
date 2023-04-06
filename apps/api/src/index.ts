@@ -30,7 +30,7 @@ async function pingHandler(
   c: Context<{ Bindings: Bindings }>
 ): Promise<PingResponse> {
   const k = await c.env.API_KV.get('ping');
-  const dbResponse = await pingData.foo(c.env.API_DB);
+  const dbResponse = await pingData.ping(c.env.API_DB);
   const tf = dateUtils.foo(1);
   return {
     db: dbResponse,

@@ -7,7 +7,7 @@
     "deploy": "wrangler publish src/index.ts",
     "migrate-local": "wrangler d1 migrations apply api_db --env local --local",
     "publish": "npx wrangler publish --env=production",
-    "test": "jest --verbose"
+    "test": "jest --verbose --coverage"
   },
   "dependencies": {
     "better-sqlite3": "8.0.1",
