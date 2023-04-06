@@ -116,9 +116,21 @@ importers:
 
   packages/utils:
     devDependencies:
+      '@types/jest':
+        specifier: ^29.5.0
+        version: 29.5.0
+      esbuild:
+        specifier: ^0.17.15
+        version: 0.17.15
+      esbuild-jest:
+        specifier: ^0.5.0
+        version: 0.5.0(esbuild@0.17.15)
       eslint-config-custom:
         specifier: workspace:*
         version: link:../eslint-config-custom
+      jest:
+        specifier: ^29.5.0
+        version: 29.5.0
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
