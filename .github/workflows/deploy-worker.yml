@@ -30,5 +30,8 @@ jobs:
       - name: Test
         run: pnpm run test
 
-      - name: Publish
+      - name: Publish API worker
         run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_TOKEN }} && pnpm run publish --filter=api
+
+      - name: Publish Web App
+        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_TOKEN }} && pnpm run build --filter=web
