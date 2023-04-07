@@ -34,5 +34,4 @@ jobs:
         run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_WORKERS_TOKEN }} && pnpm run publish --filter=api
 
       - name: Publish Web App
-        working-directory: ./apps/web
-        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_PAGES_TOKEN }} && pnpm run deploy && pnpm run publish
+        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_PAGES_TOKEN }} && pnpm run build --filter=web
