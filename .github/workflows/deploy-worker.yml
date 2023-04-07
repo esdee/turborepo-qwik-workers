@@ -31,7 +31,13 @@ jobs:
         run: pnpm run test
 
       - name: Publish API worker
-        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_TOKEN }} && pnpm run publish --filter=api
+        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_WORKERS_TOKEN }} && pnpm run publish --filter=api
 
       - name: Publish Web App
-        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_TOKEN }} && pnpm run build --filter=web
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CF_PAGES_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: qwik-workers
+          workingDirectory: ./apps/web
+          directory: ./out
