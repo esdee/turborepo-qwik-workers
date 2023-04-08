@@ -12,7 +12,7 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Publish API Pages
+    name: Publish Web Pages
     steps:
       - name: Check out code
         uses: actions/checkout@v3
