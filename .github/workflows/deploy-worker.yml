@@ -1,14 +1,17 @@
-name: Deploy Worker
+name: Publish API Worker & Web Pages
 
 on:
   push:
     branches:
       - main
 
+env:
+  CLOUDFLARE_ACCOUNT_ID: ${{secrets.CF_ACCOUNT_ID}}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Publish API worker
+    name: Publish API Worker & Web Pages
     steps:
       - name: Check out code
         uses: actions/checkout@v3
@@ -32,3 +35,6 @@ jobs:
 
       - name: Publish API worker
         run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_WORKERS_TOKEN }} && cd ./apps/api && pnpm run publish
+
+      - name: Publish Web Pages
+        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_PAGES_TOKEN }} && cd ./apps/web && pnpm run publish
