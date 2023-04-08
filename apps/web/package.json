@@ -18,6 +18,7 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
+    "publish": "qwik build && vite build --ssr src/entry.preview.tsx && vite build -c adapters/cloudflare-pages/vite.config.ts && wrangler pages publish ./dist",
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
