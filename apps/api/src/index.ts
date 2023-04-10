@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import type { Context } from 'hono';
 import { Bindings } from './bindings';
-// import { cors } from 'hono/cors';
+import { cors } from 'hono/cors';
 import { dateUtils } from 'utils';
 import { pingData } from 'data';
 
@@ -16,6 +16,7 @@ import { pingData } from 'data';
  */
 
 const api = new Hono<{ Bindings: Bindings }>();
+api.use('/*', cors());
 
 export type PingResponse = {
   foo: number;

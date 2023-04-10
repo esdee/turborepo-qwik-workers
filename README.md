@@ -8,4 +8,8 @@ What I'm trying to achieve with this repo:
 6. Deploy via Github Actions +
 7. Typescript for everything +
 8. Good DX with Linting, pre-commit hooks e.t.c.
-9. tRPC for API server and web front-end communication -- may
+9. tRPC for API server and web front-end communication -- maybe
+
+
+-- notes
+act, gh actions, docker
