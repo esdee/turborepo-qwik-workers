@@ -10,7 +10,6 @@
     "test": "jest --verbose --coverage"
   },
   "dependencies": {
-    "better-sqlite3": "8.0.1",
     "data": "workspace:*",
     "hono": "^3.1.5",
     "utils": "workspace:*"

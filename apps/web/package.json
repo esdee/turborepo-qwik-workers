@@ -24,6 +24,7 @@
     "qwik": "qwik"
   },
   "dependencies": {
+    "hono": "^3.1.5",
     "utils": "workspace:*"
   },
   "devDependencies": {
@@ -31,10 +32,10 @@
     "@builder.io/qwik-city": "~0.101.0",
     "@types/eslint": "8.37.0",
     "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.9",
+    "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "5.57.1",
     "@typescript-eslint/parser": "5.57.1",
-    "esbuild": "^0.17.15",
+    "esbuild": "^0.17.16",
     "esbuild-jest": "^0.5.0",
     "eslint": "8.37.0",
     "eslint-plugin-qwik": "0.101.0",
