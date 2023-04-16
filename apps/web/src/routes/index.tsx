@@ -43,6 +43,7 @@ export default component$(() => {
             These values comes from the API worker via tRPC and is typed{' '}
             {JSON.stringify(pingResult.value.data)}
           </h3>
+          <h3>Worker located at {import.meta.env.VITE_API_URL}</h3>
           <Counter />
         </div>
       </div>
