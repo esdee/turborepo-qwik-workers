@@ -10,7 +10,10 @@ import { dateUtils } from 'utils';
 import { hc } from 'hono/client';
 import type { PingRoute } from '../../../api/src/index';
 
-const API_URL = import.meta.env.VITE_API_URL;
+// TODO: FIX this should use the env var
+const API_URL =
+  import.meta.env.VITE_API_URL || 'https://api-prod.esdee.workers.dev/';
+
 export const usePingResult = routeLoader$(async () => {
   try {
     const client = hc<PingRoute>(API_URL);
