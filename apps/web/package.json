@@ -30,6 +30,7 @@
   "devDependencies": {
     "@builder.io/qwik": "0.101.0",
     "@builder.io/qwik-city": "~0.101.0",
+    "@cloudflare/workers-types": "^4.20230321.0",
     "@types/eslint": "8.37.0",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",

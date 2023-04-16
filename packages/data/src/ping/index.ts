@@ -1,3 +1,5 @@
+import type { D1Database } from '@cloudflare/workers-types';
+
 type PingResult = {
   date: string;
   time: string;
