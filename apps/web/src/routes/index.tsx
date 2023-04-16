@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { type DocumentHead } from '@builder.io/qwik-city';
+import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city';
 
 import Counter from '~/components/starter/counter/counter';
 import Hero from '~/components/starter/hero/hero';
@@ -7,21 +7,24 @@ import Infobox from '~/components/starter/infobox/infobox';
 import Starter from '~/components/starter/next-steps/next-steps';
 import { dateUtils } from 'utils';
 
-/*
 import { hc } from 'hono/client';
 import type { PingRoute } from '../../../api/src/index';
 
 export const usePingResult = routeLoader$(async () => {
-  const client = hc<PingRoute>(import.meta.env.VITE_API_URL);
-  const res = await client.trpc.$get();
-  const data = await res.json();
-  return { success: true, data };
+  try {
+    const client = hc<PingRoute>(import.meta.env.VITE_API_URL);
+    const res = await client.trpc.$get();
+    const data = await res.json();
+    return { success: true, data };
+  } catch (e) {
+    console.error('Error:', e);
+    return { success: false, error: e, data: { error: e } };
+  }
 });
-*/
 
 export default component$(() => {
   const val = dateUtils.foo(100);
-  // const pingResult = usePingResult();
+  const pingResult = usePingResult();
 
   return (
     <>
@@ -36,7 +39,10 @@ export default component$(() => {
       <div class="section">
         <div class="container center">
           <h3>This value comes from dateUtils.foo {val}</h3>
-          <h3>These values comes from the API worker via tRPC and is typed</h3>
+          <h3>
+            These values comes from the API worker via tRPC and is typed{' '}
+            {JSON.stringify(pingResult.value.data)}
+          </h3>
           <Counter />
         </div>
       </div>
