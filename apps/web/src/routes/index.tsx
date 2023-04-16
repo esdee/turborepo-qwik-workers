@@ -10,9 +10,10 @@ import { dateUtils } from 'utils';
 import { hc } from 'hono/client';
 import type { PingRoute } from '../../../api/src/index';
 
+const API_URL = import.meta.env.VITE_API_URL;
 export const usePingResult = routeLoader$(async () => {
   try {
-    const client = hc<PingRoute>(import.meta.env.VITE_API_URL);
+    const client = hc<PingRoute>(API_URL);
     const res = await client.trpc.$get();
     const data = await res.json();
     return { success: true, data };
@@ -43,7 +44,7 @@ export default component$(() => {
             These values comes from the API worker via tRPC and is typed{' '}
             {JSON.stringify(pingResult.value.data)}
           </h3>
-          <h3>Worker located at {import.meta.env.VITE_API_URL}</h3>
+          <h3>Worker located at {API_URL}</h3>
           <Counter />
         </div>
       </div>
