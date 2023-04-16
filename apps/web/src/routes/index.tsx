@@ -48,7 +48,11 @@ export default component$(() => {
             {JSON.stringify(pingResult.value.data)}
           </h3>
           <h3>Worker located at {API_URL}</h3>
-          <h3>Web Env var {import.meta.env.VITE_TEST_VAR}</h3>
+          <h3>1 {import.meta.env.VITE_TEST_VAR}</h3>
+          <h3>2 {import.meta.env.MODE}</h3>
+          <h3>3 {import.meta.env.PROD}</h3>
+          <h3>4 {import.meta.env.DEV}</h3>
+          <h3>5 {import.meta.env.VITE_API_URL}</h3>
           <Counter />
         </div>
       </div>
