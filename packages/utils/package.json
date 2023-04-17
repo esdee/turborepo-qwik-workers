@@ -9,12 +9,11 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
-    "esbuild": "^0.17.15",
+    "esbuild": "^0.17.17",
     "esbuild-jest": "^0.5.0",
     "eslint-config-custom": "workspace:*",
     "jest": "^29.5.0",
     "tsconfig": "workspace:*",
-    "typescript": "^5.0.3",
-    "vitest": "^0.29.8"
+    "typescript": "^5.0.4"
   }
 }
