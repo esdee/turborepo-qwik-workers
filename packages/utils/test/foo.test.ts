@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { foo } from '../src/date-utils/index';
 
 describe('A simple test', () => {

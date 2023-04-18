@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { ping } from '../src/ping';
 import { getTestDB } from './testHelper';
 

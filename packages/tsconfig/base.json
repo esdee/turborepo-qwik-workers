@@ -14,11 +14,6 @@
     "skipLibCheck": true,
     "lib": [
       "esnext"
-    ],
-    "types": [
-      "jest",
-      "jest-environment-miniflare/globals",
-      "@cloudflare/workers-types"
     ]
   }
 }

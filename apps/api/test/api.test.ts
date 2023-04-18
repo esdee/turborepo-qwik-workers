@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import api from '../src/index';
 import type { PingResponse } from '../src/handlers/ping';
 import { getTestEnvironment } from './testHelper';
@@ -15,8 +16,9 @@ describe('A simple server test', () => {
       foo: 3,
       kv: { ping: 'foo-test' },
       message: 'Hello, world!',
-      private: 'test private',
-      public: 'test public',
+      // values from .vitest.config.ts in root dir
+      private: 'this is test private',
+      public: 'this is test public',
     });
   });
 });

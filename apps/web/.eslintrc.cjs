@@ -21,7 +21,7 @@ module.exports = {
     },
   },
   plugins: ['@typescript-eslint'],
-  ignorePatterns: ['**/*.test.ts', '**/test/*.test.ts'],
+  ignorePatterns: ['**/*.test.ts', '**/test/*.test.ts', 'vitest.config.ts'],
   rules: {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',

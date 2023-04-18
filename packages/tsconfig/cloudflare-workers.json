@@ -16,9 +16,8 @@
       "esnext"
     ],
     "types": [
-      "jest",
-      "jest-environment-miniflare/globals",
-      "@cloudflare/workers-types"
+      "@cloudflare/workers-types",
+      "vitest-environment-miniflare/globals"
     ]
   }
 }
