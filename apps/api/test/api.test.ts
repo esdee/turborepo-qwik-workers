@@ -1,5 +1,5 @@
 import api from '../src/index';
-import type { PingResponse } from '../src/index';
+import type { PingResponse } from '../src/handlers/ping';
 import { getTestEnvironment } from './testHelper';
 
 const env = getTestEnvironment();
