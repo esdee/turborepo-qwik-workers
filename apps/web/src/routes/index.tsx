@@ -10,9 +10,7 @@ import { dateUtils } from 'utils';
 import { hc } from 'hono/client';
 import type { PingRoute } from '../../../api/src/index';
 
-// TODO: FIX this should use the env var
-const API_URL =
-  import.meta.env.VITE_API_URL || 'https://api-prod.esdee.workers.dev/';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const usePingResult = routeLoader$(async () => {
   try {
@@ -48,11 +46,6 @@ export default component$(() => {
             {JSON.stringify(pingResult.value.data)}
           </h3>
           <h3>Worker located at {API_URL}</h3>
-          <h3>1 {import.meta.env.VITE_TEST_VAR}</h3>
-          <h3>2 {import.meta.env.MODE}</h3>
-          <h3>3 {import.meta.env.PROD}</h3>
-          <h3>4 {import.meta.env.DEV}</h3>
-          <h3>5 {import.meta.env.VITE_API_URL}</h3>
           <Counter />
         </div>
       </div>
