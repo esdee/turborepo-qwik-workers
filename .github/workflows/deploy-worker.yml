@@ -34,10 +34,12 @@ jobs:
         run: pnpm run test
 
       - name: Publish API worker
-        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_WORKERS_TOKEN }} && cd ./apps/api && pnpm run publish
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
+        run: cd ./apps/api && pnpm run publish
 
       - name: Publish Web Pages
-        run: export CLOUDFLARE_API_TOKEN=${{ secrets.CF_PAGES_TOKEN }} &&
-          export VITE_API_URL=${{ env.VITE_API_URL }} &&
-          cd ./apps/web &&
-          pnpm run publish
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_PAGES_TOKEN }}
+          VITE_API_URL: ${{ env.VITE_API_URL }}
+        run: cd ./apps/web && pnpm run publish
